@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1>Blog</h1>
+	{% for entry in entries %}
+	<div class="entry">
+		<div class="subject">
+			{{entry.subject}}
+		</div>
+		<!-- <div class="date">
+			{{entry.created}}
+		</div> -->
+		<div class="content">
+			{{entry.content}}
+		</div>
+	</div>
+	{% endfor %}
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1>Blog</h1>
+	<h2>Write something</h2>
+	<form action="" method="post">
+		<label for="" name="subject">
+			<div>subject</div>
+			<input type="text" name="subject" id="" value="{{subject}}">
+		</label>
+		<label for="" name="content">
+			<div>content</div>
+			<textarea name="content">{{content}}</textarea>
+		</label>
+		{% if error %}
+		<div class="error">{{error}}</div>
+		{% endif %}
+		<div>
+			<input type="submit">
+		</div>
+	</form>
+</body>
+</html>
