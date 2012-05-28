@@ -14,11 +14,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import os
 import webapp2
+import jinja2
 
-class MainHandler(webapp2.RequestHandler):
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), autoescape=True)
+
+class Handler(webapp2.RequestHandler):
+    # function that simplifies sending requests:
+    def write(self, *a, **kw):
+        self.response.out.write(*a, **kw)
+    # function that renders string of template:
+    def render_str(self, template, **params):
+        t = jinja_env.get_template(template)
+        return t.render()
+    # takes both functions above and joins them
+    def render(self, template, **kw):
+        self.write(render_str(template, **kw))
+
+class MainHandler(Handler):
     def get(self):
-        self.response.out.write('Hello world!')
+    	self.response,headers['Content-Type'] = 'text/plain'
+    	visits = self.request.cookies.get('visits', 0)
+    	visits += 1
+    	self.response.headers.add_header('Set-Cookie', 'visits=%s' % visits)
 
-app = webapp2.WSGIApplication([('/', MainHandler)],
-                              debug=True)
+    	self.write("You have been here %s times!" % visits)
+
+
+app = webapp2.WSGIApplication([
+	('/', MainHandler)
+
+	], debug=True)

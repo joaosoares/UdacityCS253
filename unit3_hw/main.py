@@ -64,16 +64,12 @@ class CreateHandler(Handler):
             a.put()
             # finds the id of the entity just created to redirect to permalink
             permalink = a.key().id()
-            print "-------- PERMALINK IS %s ---------" % permalink
             #redirects to permalink
-            self.redirect("/%s" % permalink)
-
-
-
+            self.redirect("/%d" % permalink)
 
 class PermalinkHandler(Handler):
     def get(self, permalink):
-        link = Entry.get_by_id(int(permalink))
+        link = Entry.get_by_id(permalink)
         if link:
             self.render('entry.html', subject=link.subject, content=link.content)
         else:
