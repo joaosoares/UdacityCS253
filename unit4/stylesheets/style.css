@@ -1,0 +1,75 @@
+body {
+	font: 75% "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+ol, ul, p {
+	font-size: 1.2em;
+	line-height: 1.5;
+}
+
+form, fieldset, legend {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+legend {
+	font-size: 2em;
+	line-height: 1.8;
+	padding-bottom: .5em;
+}
+
+button {
+	margin-left: 130px;
+	cursor: pointer;
+}
+
+form ol, form ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+form li {
+	clear: both;
+	margin: 0 0 .75em;
+	padding: 0;
+}
+
+label {
+	display: block;
+	float: left;
+	line-height: 1.6;
+	margin-right: 10px;
+	text-align: right;
+	width: 120px;
+}
+
+label:after {
+	content: ':';
+}
+
+input {
+	width: 250px;
+}
+
+input:focus {
+	background-color: #FFF;
+}
+
+/* ERRORS */
+strong.err {
+	color: #ffdfdf;
+	display: block;
+	line-height: 1.8;
+	padding-left: 5px;
+	text-align: left;
+	white-space: nowrap;
+	position: absolute;
+	top:0;
+	left: 390px;
+}
+
+strong.err:before {
+	content: "<"
+}
